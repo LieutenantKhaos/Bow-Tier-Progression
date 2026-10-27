@@ -71,11 +71,10 @@ public class TieredBowItem extends BowItem {
     }
 
     @Override
-    public int getUseDuration(ItemStack stack, LivingEntity entity) {
-        int vanillaDuration = super.getUseDuration(stack, entity);
-        if (drawSpeedMultiplier == 1.0F) {
-            return vanillaDuration;
-        }
-        return Math.max(1, Math.round(vanillaDuration / drawSpeedMultiplier));
+    public boolean releaseUsing(ItemStack stack, Level level, LivingEntity entity, int remainingTicks) {
+        int duration = getUseDuration(stack, entity);
+        int elapsed = Math.max(0, duration - remainingTicks);
+        int scaledElapsed = (int) Math.floor(elapsed * (double) drawSpeedMultiplier);
+        return super.releaseUsing(stack, level, entity, duration - scaledElapsed);
     }
 }

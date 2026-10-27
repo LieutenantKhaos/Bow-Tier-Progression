@@ -23,15 +23,19 @@ public final class ModItems {
         return item;
     }
 
-    // Bow velocity multiplier is intentionally conservative: velocity also
-    // influences projectile damage, so small increases are meaningful.
+    // Copper: first material upgrade over the vanilla bow.
+    public static final Item COPPER_BOW = register(
+        ModItemIds.COPPER_BOW,
+        p -> new TieredBowItem(p, 1.00f, 1.03f, 1.00f),
+        new Item.Properties().durability(384).rarity(Rarity.COMMON)
+    );
+
     public static final Item IRON_BOW = register(
         ModItemIds.IRON_BOW,
         p -> new TieredBowItem(p, 1.10f, 1.05f, 1.05f),
         new Item.Properties().durability(500).rarity(Rarity.COMMON)
     );
 
-    // Gold: fragile, but the strongest "quick/fast" feeling tier.
     public static final Item GOLDEN_BOW = register(
         ModItemIds.GOLDEN_BOW,
         p -> new TieredBowItem(p, 1.00f, 1.12f, 1.30f),
@@ -50,43 +54,50 @@ public final class ModItems {
         new Item.Properties().durability(1536).fireResistant().rarity(Rarity.RARE)
     );
 
+    public static final Item COPPER_ARROW = register(
+        ModItemIds.COPPER_ARROW,
+        p -> new TieredArrowItem(p, 1.05),
+        new Item.Properties().rarity(Rarity.COMMON)
+    );
+
     public static final Item IRON_ARROW = register(
         ModItemIds.IRON_ARROW,
-        p -> new TieredArrowItem(p, 1.50, 1),
+        p -> new TieredArrowItem(p, 1.50),
         new Item.Properties().rarity(Rarity.COMMON)
     );
 
     public static final Item GOLDEN_ARROW = register(
         ModItemIds.GOLDEN_ARROW,
-        p -> new TieredArrowItem(p, 1.10, 2),
+        p -> new TieredArrowItem(p, 1.10),
         new Item.Properties().rarity(Rarity.UNCOMMON)
     );
 
     public static final Item DIAMOND_ARROW = register(
         ModItemIds.DIAMOND_ARROW,
-        p -> new TieredArrowItem(p, 1.50, 3),
+        p -> new TieredArrowItem(p, 1.50),
         new Item.Properties().rarity(Rarity.RARE)
     );
 
     public static final Item NETHERITE_ARROW = register(
         ModItemIds.NETHERITE_ARROW,
-        p -> new TieredArrowItem(p, 1.75, 4),
+        p -> new TieredArrowItem(p, 1.75),
         new Item.Properties().fireResistant().rarity(Rarity.RARE)
     );
 
-    // Enderite integration tier: successor to Netherite when Enderite Mod is present.
     public static final Item ENDERITE_ARROW = register(
         ModItemIds.ENDERITE_ARROW,
-        p -> new TieredArrowItem(p, 2.50, 5),
+        p -> new TieredArrowItem(p, 2.50),
         new Item.Properties().fireResistant().rarity(Rarity.EPIC)
     );
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> {
+            entries.accept(COPPER_BOW);
             entries.accept(IRON_BOW);
             entries.accept(GOLDEN_BOW);
             entries.accept(DIAMOND_BOW);
             entries.accept(NETHERITE_BOW);
+            entries.accept(COPPER_ARROW);
             entries.accept(IRON_ARROW);
             entries.accept(GOLDEN_ARROW);
             entries.accept(DIAMOND_ARROW);

@@ -1,6 +1,10 @@
 package dev.vanillabowtiers.client;
 
 import dev.vanillabowtiers.TieredArrowItem;
+import java.util.Locale;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 import dev.vanillabowtiers.TieredBowItem;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
@@ -32,15 +36,15 @@ public final class VanillaBowTiersClient implements ClientModInitializer {
 
         ItemTooltipCallback.EVENT.register((stack, context, type, lines) -> {
             if (stack.getItem() instanceof TieredBowItem bow) {
-                int sharpshooterLevel = getSharpshooterLevel(lines);
+                int sharpshooterLevel = getSharpshooterLevel(stack);
 
                 lines.add(Component.empty());
                 lines.add(Component.literal("When fired:").withStyle(ChatFormatting.GRAY));
-                lines.add(Component.literal(String.format(" %.2f Arrow Damage", bow.damageMultiplier()))
+                lines.add(Component.literal(String.format(Locale.ROOT, " %.2f Arrow Damage", bow.damageMultiplier()))
                         .withStyle(ChatFormatting.DARK_GREEN));
-                lines.add(Component.literal(String.format(" %.2f Arrow Velocity", bow.velocityMultiplier()))
+                lines.add(Component.literal(String.format(Locale.ROOT, " %.2f Arrow Velocity", bow.velocityMultiplier()))
                         .withStyle(ChatFormatting.DARK_GREEN));
-                lines.add(Component.literal(String.format(" %.2f Draw Speed", bow.drawSpeedMultiplier()))
+                lines.add(Component.literal(String.format(Locale.ROOT, " %.2f Draw Speed", bow.drawSpeedMultiplier()))
                         .withStyle(ChatFormatting.DARK_GREEN));
 
                 if (sharpshooterLevel > 0) {
@@ -54,7 +58,7 @@ public final class VanillaBowTiersClient implements ClientModInitializer {
                 if (!lines.isEmpty()) {
                     lines.set(0, lines.get(0).copy().withStyle(ChatFormatting.LIGHT_PURPLE));
                 }
-                int sharpshooterLevel = getSharpshooterLevel(lines);
+                int sharpshooterLevel = getSharpshooterLevel(stack);
 
                 lines.add(Component.empty());
                 lines.add(Component.literal("When fired:").withStyle(ChatFormatting.GRAY));
@@ -73,19 +77,19 @@ public final class VanillaBowTiersClient implements ClientModInitializer {
             } else if (stack.getItem() instanceof TieredArrowItem arrow) {
                 lines.add(Component.empty());
                 lines.add(Component.literal("Projectile:").withStyle(ChatFormatting.GRAY));
-                lines.add(Component.literal(String.format(" %.2f Damage", arrow.damageMultiplier()))
+                lines.add(Component.literal(String.format(Locale.ROOT, " %.2f Damage", arrow.damageMultiplier()))
                         .withStyle(ChatFormatting.DARK_GREEN));
             }
         });
     }
 
-    private static int getSharpshooterLevel(java.util.List<Component> lines) {
-        for (Component line : lines) {
-            String text = line.getString();
-            if (text.equals("Sharpshooter I")) return 1;
-            if (text.equals("Sharpshooter II")) return 2;
-            if (text.equals("Sharpshooter III")) return 3;
-            if (text.equals("Sharpshooter IV")) return 4;
+    private static int getSharpshooterLevel(ItemStack stack) {
+        ItemEnchantments enchantments = stack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
+        for (var entry : enchantments.entrySet()) {
+            if (entry.getKey().unwrapKey().map(key -> key.identifier().equals(
+                    Identifier.fromNamespaceAndPath("vanilla_bow_tiers", "sharpshooter"))).orElse(false)) {
+                return Math.max(0, Math.min(4, entry.getIntValue()));
+            }
         }
         return 0;
     }

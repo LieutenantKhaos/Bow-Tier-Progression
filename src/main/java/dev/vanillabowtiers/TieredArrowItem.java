@@ -10,18 +10,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * Uses the vanilla Arrow entity. This is important for compatibility:
- * no custom projectile renderer or custom entity type is introduced.
- */
 public final class TieredArrowItem extends ArrowItem {
     private final double damageMultiplier;
-    private final int projectileTier;
 
-    public TieredArrowItem(Properties properties, double damageMultiplier, int projectileTier) {
+    public TieredArrowItem(Properties properties, double damageMultiplier) {
         super(properties);
         this.damageMultiplier = damageMultiplier;
-        this.projectileTier = projectileTier;
     }
 
     public double damageMultiplier() {
@@ -36,9 +30,15 @@ public final class TieredArrowItem extends ArrowItem {
             @Nullable ItemStack firedFromWeapon
     ) {
         AbstractArrow arrow = super.createArrow(level, pickupStack, owner, firedFromWeapon);
-        arrow.setBaseDamageFromMob((float) (2.0D * damageMultiplier));
+        arrow.setBaseDamage(2.0D * damageMultiplier);
         if (arrow instanceof ProjectileTierAccess tierAccess) {
-            tierAccess.vanillaBowTiers$setProjectileTier(projectileTier);
+            int tier = this == ModItems.COPPER_ARROW ? 6
+                    : this == ModItems.IRON_ARROW ? 1
+                    : this == ModItems.GOLDEN_ARROW ? 2
+                    : this == ModItems.DIAMOND_ARROW ? 3
+                    : this == ModItems.NETHERITE_ARROW ? 4
+                    : this == ModItems.ENDERITE_ARROW ? 5 : 0;
+            tierAccess.vanillaBowTiers$setProjectileTier(tier);
         }
 
         if (this == ModItems.ENDERITE_ARROW && arrow instanceof EnderiteArrowAccess enderiteArrowAccess) {

@@ -15,11 +15,13 @@ public final class ModItemIds {
         );
     }
 
+    public static final ResourceKey<Item> COPPER_BOW = create("copper_bow");
     public static final ResourceKey<Item> IRON_BOW = create("iron_bow");
     public static final ResourceKey<Item> GOLDEN_BOW = create("golden_bow");
     public static final ResourceKey<Item> DIAMOND_BOW = create("diamond_bow");
     public static final ResourceKey<Item> NETHERITE_BOW = create("netherite_bow");
 
+    public static final ResourceKey<Item> COPPER_ARROW = create("copper_arrow");
     public static final ResourceKey<Item> IRON_ARROW = create("iron_arrow");
     public static final ResourceKey<Item> GOLDEN_ARROW = create("golden_arrow");
     public static final ResourceKey<Item> DIAMOND_ARROW = create("diamond_arrow");

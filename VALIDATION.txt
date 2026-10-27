@@ -1,0 +1,37 @@
+Vanilla Bow Tiers 0.3.3-rc.4 — validation
+Target: Minecraft 26.2 / Fabric / Java 25
+
+PASSED
+- Java 25 compilation of all mod sources against the Minecraft 26.2 dependency
+  included with the original source archive and the declared Fabric dependencies.
+- Gradle clean build and wrapper generation: BUILD SUCCESSFUL.
+- ASM inspection: all 14 remaining Minecraft injection target method signatures
+  match the Minecraft 26.2 classes. The optional Enderite pseudo-mixin was compiled
+  but cannot be checked against Enderite without that external mod.
+- Focused Java checks of AmmoModelData.set using a bootstrapped Minecraft ItemStack:
+  floats, flags, colors, and later strings survive ammo updates, and an unchanged
+  marker does not rewrite the component. The test binds an empty bow component map
+  for isolation; it does not simulate a running Fabric world.
+- All 135 resource JSON files parse.
+- References to VBT's own model files resolve across the base and built-in packs.
+- Packaged fabric.mod.json has version 0.3.3-rc.4; all declared mixin classes exist.
+
+BUILD ENVIRONMENT NOTE
+Java ZIP filesystem writability detection reports false inside this execution
+sandbox, even for files Java can create in the workspace. That prevents Loom from
+regenerating Minecraft dependency archives normally and produced empty cache JARs.
+For this build only, a local Gradle init script substituted the original archive's
+valid, same-version Minecraft 26.2 dependency on the compiler classpath. The normal
+Gradle compile/resource/package tasks then completed successfully. No Minecraft
+classes, environment workaround, or dependency caches are bundled in the output
+mod or source ZIP. The source project retains normal Gradle build configuration.
+
+NOT VERIFIED IN GAME
+No client or dedicated-server gameplay session was run. World-reload behavior,
+skeleton combat/drop behavior, smithing UI interaction, Enderite integration, and
+Bray/Even Better Enchants appearance need in-game playtesting with the user's mods.
+Compilation and signature/resource checks do not prove those integrations work.
+
+INSTALL
+Replace the old VBT JAR in your mods folder with the supplied RC.4 JAR; keep the
+existing Minecraft 26.2 / Fabric / Fabric API installation. Use one VBT version.

@@ -1,8 +1,10 @@
 {
+  "item.vanilla_bow_tiers.copper_bow": "Copper Bow",
   "item.vanilla_bow_tiers.iron_bow": "Iron Bow",
   "item.vanilla_bow_tiers.golden_bow": "Golden Bow",
   "item.vanilla_bow_tiers.diamond_bow": "Diamond Bow",
   "item.vanilla_bow_tiers.netherite_bow": "Netherite Bow",
+  "item.vanilla_bow_tiers.copper_arrow": "Copper Arrow",
   "item.vanilla_bow_tiers.iron_arrow": "Iron Arrow",
   "item.vanilla_bow_tiers.golden_arrow": "Golden Arrow",
   "item.vanilla_bow_tiers.diamond_arrow": "Diamond Arrow",

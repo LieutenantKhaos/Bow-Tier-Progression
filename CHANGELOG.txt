@@ -1,3 +1,26 @@
+Vanilla Bow Tiers 0.3.3-rc.4
+- Retains Minecraft 26.2 and the existing item stats, recipes, and bow spawn rates.
+- Tiered arrows now set exact base damage instead of using the mob-damage helper,
+  which doubled the supplied value and introduced difficulty-based random damage.
+- Tiered bow charging now scales elapsed draw time; shortening maximum use duration
+  did not make the previous implementation charge faster.
+- Tier bow pulling model timing now follows each bow's draw-speed multiplier.
+- Nocked-ammo updates preserve custom model floats, flags, colors and later strings;
+  the first string remains reserved for VBT's ammo selector. Copper ammo is recognized.
+- Restores the RC.3 documented skeleton ammo rolls and persistent held-bow markers.
+  Copper retains its existing copper ammunition. Skeleton damage now uses actual
+  shot power instead of passing twice the intended base value to the mob helper.
+- Built-in Bray skeleton models use the normal tier bow's ammo-aware selectors.
+- Projectile tier, Sharpshooter level, and weak-Enderite recovery state persist.
+  Older saved arrows can recover their visual tier from their pickup item.
+- Weak Enderite recovery respects pickup permissions, preserves pickup components,
+  sets pickup delay, and does not create recoverable items from removed arrows.
+- Enderite smithing recipe is conditional on Enderite Mod being installed.
+- Sharpshooter tooltip detection reads enchantment IDs instead of English tooltip text.
+- Stat decimals use a stable format independent of the machine's locale.
+- Removed the literal Flint Arrow name override; the existing language entry handles
+  that label while custom names, item-name components, and translations remain usable.
+- Updated documentation and pinned Loom instead of using a moving snapshot.
 Vanilla Bow Tiers 0.3.3-rc.3
 - Skeleton ammunition is rolled once at spawn and remains fixed for that skeleton.
 - Vanilla Bow: 80% vanilla/Flint Arrow, 20% Iron Arrow.

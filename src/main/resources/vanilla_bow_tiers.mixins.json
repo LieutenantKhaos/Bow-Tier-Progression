@@ -6,7 +6,6 @@
     "SmithingMenuMixin",
     "AbstractArrowMixin",
     "BowItemMixin",
-    "ItemStackMixin",
     "EnderiteBowMixin",
     "AbstractSkeletonIllusionMixin",
     "MobMixin"

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "vanilla_bow_tiers:copper_bow",
     "vanilla_bow_tiers:iron_bow",
     "vanilla_bow_tiers:golden_bow",
     "vanilla_bow_tiers:diamond_bow",

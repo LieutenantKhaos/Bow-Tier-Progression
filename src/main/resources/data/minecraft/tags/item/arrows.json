@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "vanilla_bow_tiers:copper_arrow",
     "vanilla_bow_tiers:iron_arrow",
     "vanilla_bow_tiers:golden_arrow",
     "vanilla_bow_tiers:diamond_arrow",
