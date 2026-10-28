@@ -5,7 +5,7 @@ if len(sys.argv) != 2:
     raise SystemExit("Usage: python tools/make_bray_compat.py <Bray zip>")
 
 source = Path(sys.argv[1])
-out = Path("generated/Vanilla Bow Tiers - Bray Compatibility")
+out = Path("generated/Bow Tier Progression - Bray Compatibility")
 if out.exists():
     shutil.rmtree(out)
 
@@ -26,11 +26,11 @@ for name in ("iron_arrow", "golden_arrow", "diamond_arrow", "netherite_arrow"):
 (out / "pack.mcmeta").write_text(json.dumps({
     "pack": {
         "pack_format": 75,
-        "description": "Bray visual compatibility for Vanilla Bow Tiers (generated from your installed Bray pack)"
+        "description": "Bray visual compatibility for Bow Tier Progression (generated from your installed Bray pack)"
     }
 }, indent=2))
 
-zip_path = Path("generated/Vanilla-Bow-Tiers-Bray-Compat.zip")
+zip_path = Path("generated/Bow-Tier-Progression-Bray-Compat.zip")
 zip_path.parent.mkdir(exist_ok=True)
 with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
     for p in out.rglob("*"):

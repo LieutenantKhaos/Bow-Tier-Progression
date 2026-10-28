@@ -13,6 +13,6 @@ public class VanillaBowTiers implements ModInitializer {
     public void onInitialize() {
         ModEnchantmentEffects.initialize();
         ModItems.initialize();
-        LOGGER.info("Vanilla Bow Tiers initialized.");
+        LOGGER.info("Bow Tier Progression initialized.");
     }
 }

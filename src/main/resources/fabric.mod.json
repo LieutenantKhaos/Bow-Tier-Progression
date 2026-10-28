@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "vanilla_bow_tiers",
   "version": "${version}",
-  "name": "Vanilla Bow Tiers",
+  "name": "Bow Tier Progression",
   "description": "Vanilla-style material tiers for bows and arrows, designed to play nicely with resource packs.",
   "authors": [
     "ChatGPT + User"

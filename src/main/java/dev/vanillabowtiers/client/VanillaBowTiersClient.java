@@ -23,13 +23,13 @@ public final class VanillaBowTiersClient implements ClientModInitializer {
             ResourceLoader.registerBuiltinPack(
                     Identifier.fromNamespaceAndPath("vanilla_bow_tiers", "brays_compat"),
                     container,
-                    Component.literal("Vanilla Bow Tiers - Bray + Enderite Compatibility"),
+                    Component.literal("Bow Tier Progression - Bray + Enderite Compatibility"),
                     PackActivationType.NORMAL
             );
             ResourceLoader.registerBuiltinPack(
                     Identifier.fromNamespaceAndPath("vanilla_bow_tiers", "even_better_enchants_compat"),
                     container,
-                    Component.literal("Vanilla Bow Tiers - Even Better Enchants Compatibility"),
+                    Component.literal("Bow Tier Progression - Even Better Enchants Compatibility"),
                     PackActivationType.NORMAL
             );
         });

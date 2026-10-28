@@ -1,4 +1,4 @@
-Vanilla Bow Tiers - Texture Templates (v0.1.7)
+Bow Tier Progression - Texture Templates (v0.1.7)
 
 All normal item textures are now 16x16 RGBA PNGs with transparent backgrounds,
 matching Minecraft's vanilla item-art pixel grid.

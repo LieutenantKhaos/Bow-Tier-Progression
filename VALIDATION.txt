@@ -1,4 +1,4 @@
-Vanilla Bow Tiers 0.3.3-rc.4 — validation
+Bow Tier Progression 0.3.3-rc.4 — validation
 Target: Minecraft 26.2 / Fabric / Java 25
 
 PASSED

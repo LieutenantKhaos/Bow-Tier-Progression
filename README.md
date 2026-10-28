@@ -1,6 +1,13 @@
-# Vanilla Bow Tiers — Fabric, Minecraft 26.2
+# Bow Tier Progression — Fabric, Minecraft 26.2
 
 Version: 0.3.3-rc.4
+
+The project is now named **Bow Tier Progression**. The internal mod ID
+`vanilla_bow_tiers`, registry IDs, asset namespace, and Java packages are
+retained so existing worlds, items, resource packs, and mod dependencies
+remain compatible.
+
+Source: https://github.com/LieutenantKhaos/Bow-Tier-Progression
 
 Adds vanilla-style material tiers for bows and arrows, Sharpshooter I–IV,
 and optional built-in Bray/Enderite and Even Better Enchants resource packs.
@@ -8,8 +15,8 @@ and optional built-in Bray/Enderite and Even Better Enchants resource packs.
 ## Install
 
 Use Java 25, Minecraft 26.2, Fabric Loader 0.19.3 or later, and
-Fabric API 0.156.0+26.2. Replace the previous Vanilla Bow Tiers JAR
-with vanilla-bow-tiers-0.3.3-rc.4.jar in your mods folder.
+Fabric API 0.156.0+26.2. Replace the previous Bow Tier Progression JAR
+with bow-tier-progression-0.3.3-rc.4.jar in your mods folder.
 Do not leave two versions installed together.
 
 Enderite Mod is optional. Enderite arrow smithing loads only when it is installed.
@@ -63,7 +70,7 @@ Java 25 and Gradle 9.5.1; Fabric Loom is pinned to 1.17.21.
 Windows: `gradlew.bat build`
 Other systems: `./gradlew build`
 
-Output: `build/libs/vanilla-bow-tiers-0.3.3-rc.4.jar`.
+Output: `build/libs/bow-tier-progression-0.3.3-rc.4.jar`.
 
 See CHANGELOG.txt for the fixes and VALIDATION.txt for the checks and limits
 of this release. In-game behavior and resource-pack appearance still require

@@ -1,10 +1,10 @@
-Vanilla Bow Tiers 0.3.0 - Unified Compatibility
+Bow Tier Progression 0.3.0 - Unified Compatibility
 
 Standalone VBT compatibility ZIPs are no longer required.
 
 Built into the VBT mod:
-- Vanilla Bow Tiers - Bray + Enderite Compatibility
-- Vanilla Bow Tiers - Even Better Enchants Compatibility
+- Bow Tier Progression - Bray + Enderite Compatibility
+- Bow Tier Progression - Even Better Enchants Compatibility
 
 Enable the relevant built-in pack in Minecraft's Resource Packs screen and place it
 above the external resource pack it extends.
