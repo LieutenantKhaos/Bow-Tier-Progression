@@ -1,12 +1,18 @@
 {
   "pack": {
     "description": "Bow Tier Progression - Bray + Enderite compatibility",
-    "pack_format": 84,
+    "pack_format": 97,
     "supported_formats": {
-      "min_inclusive": 84,
-      "max_inclusive": 999
+      "min_inclusive": 97,
+      "max_inclusive": 97
     },
-    "min_format": 84,
-    "max_format": 999
+    "min_format": [
+      97,
+      1
+    ],
+    "max_format": [
+      97,
+      1
+    ]
   }
 }

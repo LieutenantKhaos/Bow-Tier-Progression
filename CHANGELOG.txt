@@ -1,3 +1,11 @@
+Bow Tier Progression 0.3.4-rc.1 — Minecraft 26.3
+- Updated the target game to Minecraft 26.3, Fabric Loader 0.20.1, and Fabric API 0.165.0+26.3.
+- Updated the Gradle wrapper to 9.6.0; retained Loom 1.17.21 and Java 25.
+- Updated bundled compatibility pack metadata to Minecraft 26.3 resource format 97.1.
+- Preserved internal mod/item IDs, bow/arrow balance, and Sharpshooter behavior.
+- Verified a normal clean build, all 14 injection signatures, and Fabric dedicated-server initialization.
+- Beta: client rendering, resource reload, world gameplay and optional external-mod compatibility still need playtesting.
+
 Bow Tier Progression â€” project rename
 - Renamed the public mod title, resource-pack labels, documentation, and build artifacts.
 - Retained the vanilla_bow_tiers internal ID and existing registry/asset IDs for compatibility.

@@ -1,37 +1,34 @@
-Bow Tier Progression 0.3.3-rc.4 â€” validation
-Target: Minecraft 26.2 / Fabric / Java 25
+Bow Tier Progression 0.3.4-rc.1 — validation
+Target: Minecraft 26.3 / Fabric Loader 0.20.1 / Fabric API 0.165.0+26.3 / Java 25
+Build tools: Gradle 9.6.0 / Fabric Loom 1.17.21
 
 PASSED
-- Java 25 compilation of all mod sources against the Minecraft 26.2 dependency
-  included with the original source archive and the declared Fabric dependencies.
-- Gradle clean build and wrapper generation: BUILD SUCCESSFUL.
-- ASM inspection: all 14 remaining Minecraft injection target method signatures
-  match the Minecraft 26.2 classes. The optional Enderite pseudo-mixin was compiled
-  but cannot be checked against Enderite without that external mod.
-- Focused Java checks of AmmoModelData.set using a bootstrapped Minecraft ItemStack:
-  floats, flags, colors, and later strings survive ammo updates, and an unchanged
-  marker does not rewrite the component. The test binds an empty bow component map
-  for isolation; it does not simulate a running Fabric world.
-- All 135 resource JSON files parse.
-- References to VBT's own model files resolve across the base and built-in packs.
-- Packaged fabric.mod.json has version 0.3.3-rc.4; all declared mixin classes exist.
+- Normal Gradle clean build using downloaded Minecraft 26.3 dependencies.
+  No substituted Minecraft JAR or local classpath workaround is used for this release.
+- ASM inspection: all 14 Minecraft injection target method signatures match 26.3.
+  The optional Enderite pseudo-mixin cannot be checked without that external mod.
+- Fabric dedicated-server --initSettings completed, loaded the mod and reached its
+  initialization entrypoint with injection-count debugging enabled.
+  No world was started and no EULA agreement was made by this check.
+- All resource JSON and compatibility-pack metadata parse.
+- Local model references resolve across the base and built-in resource packs.
+- Packaged metadata identifies Bow Tier Progression 0.3.4-rc.1, requires Minecraft
+  ~26.3 and Loader >=0.20.1, and retains vanilla_bow_tiers for compatibility.
+- Built-in compatibility packs target resource format 97.1, as specified by
+  Minecraft 26.3 version.json. Data format is 121.0.
 
-BUILD ENVIRONMENT NOTE
-Java ZIP filesystem writability detection reports false inside this execution
-sandbox, even for files Java can create in the workspace. That prevents Loom from
-regenerating Minecraft dependency archives normally and produced empty cache JARs.
-For this build only, a local Gradle init script substituted the original archive's
-valid, same-version Minecraft 26.2 dependency on the compiler classpath. The normal
-Gradle compile/resource/package tasks then completed successfully. No Minecraft
-classes, environment workaround, or dependency caches are bundled in the output
-mod or source ZIP. The source project retains normal Gradle build configuration.
+ENVIRONMENT OBSERVATIONS
+The initialization run reported unavailable Windows performance counters and the
+expected absent optional Enderite class. It nevertheless completed successfully.
 
 NOT VERIFIED IN GAME
-No client or dedicated-server gameplay session was run. World-reload behavior,
-skeleton combat/drop behavior, smithing UI interaction, Enderite integration, and
-Bray/Even Better Enchants appearance need in-game playtesting with the user's mods.
-Compilation and signature/resource checks do not prove those integrations work.
+This is a beta port. No playable client or world session was run. Client mixin
+signatures were checked statically; actual projectile rendering, resource reload,
+recipes/enchantment registry loading in a world, skeleton combat/drop behavior,
+smithing UI, save/reload, Enderite integration, and Bray/Even Better Enchants
+appearance still require playtesting. External packs/mods need their own 26.3 support.
 
 INSTALL
-Replace the old VBT JAR in your mods folder with the supplied RC.4 JAR; keep the
-existing Minecraft 26.2 / Fabric / Fabric API installation. Use one VBT version.
+Use Minecraft 26.3, Java 25, Fabric Loader 0.20.1 or later and Fabric API
+0.165.0+26.3. Replace the old mod JAR with bow-tier-progression-0.3.4-rc.1.jar.
+Keep only one version installed. Use the separate RC.4 build for Minecraft 26.2.
